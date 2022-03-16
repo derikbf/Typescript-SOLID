@@ -1,3 +1,4 @@
+import { EnterpriseCustomer, IndividualCustomer } from './classes/customer';
 import { Messaging } from './services/messaging';
 import { Order } from './classes/order';
 import { Persistency } from './services/persistency';
@@ -11,7 +12,9 @@ const noDiscount = new NoDiscount();
 const shoppingCart = new ShoppingCart(noDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
-const order = new Order(shoppingCart, messaging, persistency);
+// const individualCustomer = new IndividualCustomer('Luiz', 'Miranda', '111111111');
+const enterpriseCustomer = new EnterpriseCustomer('Tech LTDA', '11.111.1111/0001-11');
+const order = new Order(shoppingCart, messaging, persistency, enterpriseCustomer);
 
 shoppingCart.addItem(new Product('Camiseta',49.01))
 shoppingCart.addItem(new Product('Calça',69.99))
